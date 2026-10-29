@@ -36,26 +36,84 @@
         <p>This project (ProjectZeta) is my first try at a website. This is a temp template built using semantic HTML5 and clean CSS3.</p>
     </section>
 
-    <!-- Projects Grid Section -->
+    <!-- Projects Section with Real-Time Search -->
     <section id="projects" class="bg-light">
         <div class="container section">
-            <h2>Projects</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Project One</h3>
-                    <p>A description of the first awesome thing you built or plan to showcase here.</p>
+            <h2>My Projects</h2>
+            
+            <!-- Search Box Area -->
+            <div class="search-container">
+                <input type="text" id="projectSearch" placeholder="Search projects by name or technology...">
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid" id="projectGrid">
+                
+                <!-- Project 1 (Your Live Project) -->
+                <div class="card project-card">
+                    <h3>My First HTML Project</h3>
+                    <span class="badge">HTML / CSS</span>
+                    <p>This is my first live static webpage hosted successfully on GitHub Pages.</p>
+                    <a href="#" class="project-link">View Project &rarr;</a>
                 </div>
-                <div class="card">
-                    <h3>Project Two</h3>
-                    <p>A description of the second feature, portfolio item, or blog post element.</p>
+
+                <!-- Project 2 (Placeholder) -->
+                <div class="card project-card">
+                    <h3>JavaScript Space Game</h3>
+                    <span class="badge">JavaScript</span>
+                    <p>A retro 2D arcade shooter built using the HTML5 canvas element and custom physics loop.</p>
+                    <a href="#" class="project-link">Coming Soon</a>
                 </div>
-                <div class="card">
-                    <h3>Project Three</h3>
-                    <p>A third column to demonstrate how the grid layout dynamically responds to viewports.</p>
+
+                <!-- Project 3 (Placeholder) -->
+                <div class="card project-card">
+                    <h3>Personal Portfolio Theme</h3>
+                    <span class="badge">Web Design</span>
+                    <p>A sleek dark and orange styled template designed optimized for engineers and developers.</p>
+                    <a href="#" class="project-link">Coming Soon</a>
                 </div>
+
+            </div>
+
+            <!-- Message displayed when nothing matches search -->
+            <div id="noResults" class="text-center" style="display: none; margin-top: 20px; color: var(--text-muted);">
+                No matching projects found. Try a different search term!
             </div>
         </div>
     </section>
+
+    <!-- Simple Search Script -->
+    <script>
+        document.getElementById('projectSearch').addEventListener('keyup', function() {
+            let filter = this.value.toLowerCase();
+            let cards = document.querySelectorAll('.project-card');
+            let grid = document.getElementById('projectGrid');
+            let noResults = document.getElementById('noResults');
+            let visibleCount = 0;
+
+            cards.forEach(function(card) {
+                let title = card.querySelector('h3').textContent.toLowerCase();
+                let tags = card.querySelector('.badge').textContent.toLowerCase();
+                let description = card.querySelector('p').textContent.toLowerCase();
+
+                // Match against title, tags, or description text
+                if (title.includes(filter) || tags.includes(filter) || description.includes(filter)) {
+                    card.style.display = "";
+                    visibleCount++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            // Toggle "No Results" message
+            if (visibleCount === 0) {
+                noResults.style.display = "block";
+            } else {
+                noResults.style.display = "none";
+            }
+        });
+    </script>
+
 
     <!-- Contact Section -->
     <section id="contact" class="container section text-center">
