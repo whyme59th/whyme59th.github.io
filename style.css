@@ -177,6 +177,58 @@ nav {
     box-shadow: 0 10px 20px rgba(249, 115, 22, 0.1);
 }
 
+/* --- Project Search Bar Styles --- */
+.search-container {
+    max-width: 500px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+}
+
+#projectSearch {
+    width: 100%;
+    padding: 14px 20px;
+    background-color: var(--bg-card);
+    border: 2px solid #2a2a2a;
+    border-radius: 8px;
+    color: var(--text-main);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+#projectSearch:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.2);
+}
+
+/* --- Category Badges --- */
+.badge {
+    display: inline-block;
+    background-color: rgba(249, 115, 22, 0.1);
+    color: var(--primary-color);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.project-link:hover {
+    color: var(--text-main);
+}
+
 /* --- Footer --- */
 footer {
     background-color: #0a0a0a;
